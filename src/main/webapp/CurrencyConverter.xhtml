@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Currency Converter</title>
+    </h:head>
+    <h:body>
+        <h1 align="center">Welcome to the Currency Converter</h1>
+        <h:form>
+            <p>
+                <br/><br/><br/>
+                Hey!
+                <br/>
+                This web application is for <i>Currency Conversion</i>. 
+                <br/>
+                The only thing that you need to do is to put your intended amount, type the currencies that you want to convert from and into, and in the end, click on the <i>Convert</i> button
+                <br/>
+                Note that the currencies that can be supported by the application are: 
+                <br/>
+                1) Euro<br/> 2) Dollar (which is U.S. Dollar)<br/> 3) Sek (Which is Swedish Krona)<br/> 4) Ruble (which is Russian Ruble)<br/>
+                <br/>
+                Example: Amount: <i>100</i>, From: <i>Euro</i>, To: <i>Dollar</i>  
+                <br/><br/><hr/><br/>
+                <h:outputLabel for="inputMoney" value="Amount: "/>
+                <h:inputText id="inputMoney" value="#{converterManager.moneyAmount}"/>
+                <h:outputLabel for="currencyFrom" value="From: "/>
+                <h:inputText id="searchedAcct" value="#{converterManager.fromCurrency}"/>
+                <h:outputLabel for="currencyTo" value="To: "/>
+                <h:inputText id="transactionAmount" value="#{converterManager.toCurrency}"/>
+                <br/><br/>   
+                <h:commandButton value="Convert" action="#{converterManager.doConvert}"/>
+            </p>
+            <br/><hr/>
+            <h:outputLabel for="curr1" rendered="#{converterManager.resultOfConversion != 0.0}"  value="Result: "/>
+            <h:outputText id="curr1" value="#{converterManager.resultOfConversion}"/>
+        </h:form>
+        
+    </h:body>
+</html>
+
